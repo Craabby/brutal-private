@@ -39,9 +39,9 @@ module.exports = player => {
     // player flail
     writer.f32(entity.flail.position.x / 10); // x
     writer.f32(entity.flail.position.y / 10); // y
-    writer.f32(0); // angle
+    writer.f32(entity.flail.angle); // angle
 
-    writer.u32(1000); // size
+    writer.u32(entity.flail.size); // size
 
     writer.u16(0); // flags
 
