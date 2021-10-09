@@ -5,14 +5,14 @@ class Flail {
     this.owner = owner;
     this.position = position;
     this.velocity = new Vector(0, 0);
-
     this.isAffectedByRope = true;
 
     this.chain = []; // Vector[]
   }
 
   tick(tick) {
-    // do the rope thing
+    this.velocity = this.velocity.scale(1 / 1.1)
+    this.position = this.position.add(this.velocity);
   }
 }
 

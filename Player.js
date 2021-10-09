@@ -17,7 +17,7 @@ class Player {
     this.force = new Vector(0, 0),
     this.velocity = new Vector(0, 0),
     this.flail = new Flail(this, this.position);
-    this.rope = new Rope(10, 50)
+    this.rope = new Rope(3, 80)
 
     this.name = "";
     this.color = 0;

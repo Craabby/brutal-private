@@ -8,7 +8,7 @@ class ChainSegment {
   }
   
   tick(tick) {
-    this.velocity = this.velocity.scale(1 / 1.025);
+    this.velocity = this.velocity.scale(1 / 1.1);
 
     this.position = this.position.add(this.velocity);
   }
