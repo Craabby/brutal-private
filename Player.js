@@ -4,24 +4,25 @@ const physics = require("./physics.js");
 const coder = require("./coder");
 const Vector = require("./Vector.js");
 const Flail = require("./Flail.js");
+const Rope = require("./Rope.js");
 
 class Player {
   constructor(ws) {
-    this.position = new Vector(0, 0);
     this.input = {
       angle: 0,
       playerIsMoving: false,
     };
 
+    this.position = new Vector(0, 0);
     this.force = new Vector(0, 0),
     this.velocity = new Vector(0, 0),
-
     this.flail = new Flail(this, this.position);
+    this.rope = new Rope(10, 50)
 
     this.name = "";
     this.color = 0;
     this.alive = false;
-    this.affectedByRope = false;
+    this.isAffectedByRope = false;
 
     this.view = new Set();
 
@@ -77,6 +78,11 @@ class Player {
     if (this.pinged) sendUpdate(this);
     physics(this);
     this.flail.tick(tick);
+
+    this.rope.segments[0] = this;
+    this.rope.segments[this.rope.segments.length - 1] = this.flail;
+
+    this.rope.tick(tick);
   }
 
   send(type, data) {

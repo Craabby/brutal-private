@@ -29,11 +29,11 @@ module.exports = player => {
     writer.f32(entity.position.y / 10);
     writer.f32(entity.input.angle - Math.PI / 2);
 
-    writer.u8(entity.flail.chain.length); // chain links
+    writer.u8(entity.rope.segments.length); // chain links
 
-    for (let i = 0; i < entity.flail.chain.length; i++) {
-      writer.f32(entity.flail.chain[i].position.x / 10);
-      writer.f32(entity.flail.chain[i].position.y / 10);
+    for (let i = 0; i < entity.rope.segments.length; i++) {
+      writer.f32(entity.rope.segments[i].position.x / 10);
+      writer.f32(entity.rope.segments[i].position.y / 10);
     }
 
     // player flail
